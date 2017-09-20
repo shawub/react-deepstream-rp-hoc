@@ -1,4 +1,4 @@
-
+import React from 'react'
 import deepstream from 'deepstream.io-client-js';
 let ds; //singleton
 
