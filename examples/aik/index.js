@@ -6,11 +6,9 @@ import {
 import React from 'react';
 
 let config = {
-  //"appurl": "<YOUR DEEPSTREAM APP URL>", 
-  "appurl": "wss://154.deepstreamhub.com?apiKey=a1630f45-0ffd-4e36-bfe1-ac5dbe61c3bc",
-  "authparams": {},
-  //"listName": "<YOUR LIST NAME>", 
-  "listName": "test/list"
+  "appUrl": "<YOUR DEEPSTREAM APP URL>", 
+  "authParams": {},
+  "listName": "<YOUR LIST NAME>"
 }
 
 class RecordBase extends React.Component {
@@ -43,5 +41,5 @@ class AppBase extends React.Component {
   }
 }
 
-export default withDeepstream(AppBase, config.appurl, config.authparams);
+export default withDeepstream(AppBase, config.appUrl, config.authParams);
 

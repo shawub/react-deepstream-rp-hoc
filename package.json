@@ -1,6 +1,6 @@
 {
   "name": "react-deepstream-rp-hoc",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A deepstream React wrapper that exports Class supporting render prop and HOCs",
   "main": "dist/deepstream.js",
   "scripts": {
