@@ -15,14 +15,14 @@ export class Deepstream extends React.Component {
       if (ds !== undefined){
         resolve(ds)
       } else {        
-        ds = deepstream( this.props.appurl ) //config.endpoint + '?apiKey=' + config.apikey
+        ds = deepstream( this.props.appUrl ) //config.endpoint + '?apiKey=' + config.apikey
         ds.on('connectionStateChanged', connectionState => {
           console.log("DS connectionStateChanged: ", connectionState);
         });
         ds.on('error', ( error, event, topic ) => {
           console.log(error, event, topic);
         });
-        ds.login({}, () => {
+        ds.login(this.props.authParams, () => {
           resolve(ds);
         });
       }
@@ -50,10 +50,10 @@ export class Deepstream extends React.Component {
   }
 }
 // HOC
-export const withDeepstream = (WrappedComponent, appurl) => {
+export const withDeepstream = (WrappedComponent, appUrl, authParams) => {
   return class extends React.Component {
     render() {
-      return <Deepstream appurl = {appurl} 
+      return <Deepstream appUrl = {appUrl} authParams = {authParams}
         render = { (deepstream) => (
           <WrappedComponent {...this.props} connected={deepstream.connected}/>
         )}
