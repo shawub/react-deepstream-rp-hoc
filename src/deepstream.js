@@ -72,10 +72,11 @@ export class DeepstreamList extends React.Component {
   }
 
   componentDidMount(){
-    if (ds !== undefined ){
+    
+    if (ds !== undefined && this.list === undefined ){
       // subscribe to list
       this.list = ds.record.getList( this.props.listName );
-      this.list.subscribe( (entries) => {
+      this.list.subscribe( (entries) => {      
         this.setState({entries: entries});
       }, true);  
     }
@@ -89,7 +90,9 @@ export class DeepstreamList extends React.Component {
   }
 
   render() {
-    return <div>{this.props.render(this.state)}</div>
+    return (
+      <div>{this.props.render(this.state)}</div>
+    )
   }
 }
 // HOC  
